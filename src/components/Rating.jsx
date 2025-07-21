@@ -4,51 +4,21 @@ const Rating = ({ value, text, color }) => {
   return (
     <div className='rating'>
       <span>
-        {value >= 1 ? (
-          <FaStar />
-        ) : value >= 0.5 ? (
-          <FaStarHalfAlt />
-        ) : (
-          <FaRegStar />
-        )}
+        {[1, 2, 3, 4, 5].map((star) => (
+          <i
+            key={star}
+            style={{ color: color || '#0dcaf0', fontSize: '1.2rem' }}
+            className={
+              value >= star
+                ? 'fas fa-star'
+                : value >= star - 0.5
+                ? 'fas fa-star-half-alt'
+                : 'far fa-star'
+            }
+          ></i>
+        ))}
+        <span className='fw-bold ms-2'>{text && text}</span>
       </span>
-      <span>
-        {value >= 2 ? (
-          <FaStar />
-        ) : value >= 1.5 ? (
-          <FaStarHalfAlt />
-        ) : (
-          <FaRegStar />
-        )}
-      </span>
-      <span>
-        {value >= 3 ? (
-          <FaStar />
-        ) : value >= 2.5 ? (
-          <FaStarHalfAlt />
-        ) : (
-          <FaRegStar />
-        )}
-      </span>
-      <span>
-        {value >= 4 ? (
-          <FaStar />
-        ) : value >= 3.5 ? (
-          <FaStarHalfAlt />
-        ) : (
-          <FaRegStar />
-        )}
-      </span>
-      <span>
-        {value >= 5 ? (
-          <FaStar />
-        ) : value >= 4.5 ? (
-          <FaStarHalfAlt />
-        ) : (
-          <FaRegStar />
-        )}
-      </span>
-      <span className='rating-text'>{text && text}</span>
     </div>
   );
 };

@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../components/Loader';
-import FormContainer from '../components/FormContainer';
 
 import { useRegisterMutation } from '../slices/usersApiSlice';
 import { setCredentials } from '../slices/authSlice';
@@ -48,9 +47,39 @@ const RegisterScreen = () => {
     }
   };
 
+  // Inline styles for better UI
+  const containerStyle = {
+    maxWidth: '400px',
+    margin: '40px auto',
+    padding: '32px',
+    background: '#fff',
+    borderRadius: '12px',
+    boxShadow: '0 4px 24px rgba(0,0,0,0.08)',
+    border: '1px solid #eaeaea',
+  };
+  const headingStyle = {
+    textAlign: 'center',
+    marginBottom: '24px',
+    fontWeight: 700,
+    color: '#222',
+  };
+  const buttonStyle = {
+    width: '100%',
+    marginTop: '16px',
+    padding: '10px',
+    fontWeight: 600,
+    fontSize: '1.1rem',
+    borderRadius: '8px',
+  };
+  const linkStyle = {
+    color: '#007bff',
+    textDecoration: 'none',
+    fontWeight: 500,
+  };
+
   return (
-    <FormContainer>
-      <h1>Register</h1>
+    <div style={containerStyle}>
+      <h1 style={headingStyle}>Register</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group className='my-2' controlId='name'>
           <Form.Label>Name</Form.Label>
@@ -91,7 +120,7 @@ const RegisterScreen = () => {
           ></Form.Control>
         </Form.Group>
 
-        <Button disabled={isLoading} type='submit' variant='primary'>
+        <Button disabled={isLoading} type='submit' variant='primary' style={buttonStyle}>
           Register
         </Button>
 
@@ -99,14 +128,14 @@ const RegisterScreen = () => {
       </Form>
 
       <Row className='py-3'>
-        <Col>
+        <Col style={{ textAlign: 'center' }}>
           Already have an account?{' '}
-          <Link to={redirect ? `/login?redirect=${redirect}` : '/login'}>
+          <Link to={redirect ? `/login?redirect=${redirect}` : '/login'} style={linkStyle}>
             Login
           </Link>
         </Col>
       </Row>
-    </FormContainer>
+    </div>
   );
 };
 

@@ -7,41 +7,33 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
     <Nav className='justify-content-center mb-4'>
       <Nav.Item>
         {step1 ? (
-          <Nav.Link as={Link} to='/login'>
-            Sign In
-          </Nav.Link>
+          <Nav.Link as={Link} to='/login' className='fw-bold text-primary'>Sign In</Nav.Link>
         ) : (
-          <Nav.Link disabled>Sign In</Nav.Link>
+          <span className='text-secondary'>Sign In</span>
         )}
       </Nav.Item>
 
       <Nav.Item>
         {step2 ? (
-          <Nav.Link as={Link} to='/shipping'>
-            Shipping
-          </Nav.Link>
+          <Nav.Link as={Link} to='/shipping' className='fw-bold text-primary'>Shipping</Nav.Link>
         ) : (
-          <Nav.Link disabled>Shipping</Nav.Link>
+          <span className='text-secondary'>Shipping</span>
         )}
       </Nav.Item>
 
       <Nav.Item>
         {step3 ? (
-          <Nav.Link as={Link} to='/payment'>
-            Payment
-          </Nav.Link>
+          <Nav.Link as={Link} to='/payment' className='fw-bold text-primary'>Payment</Nav.Link>
         ) : (
-          <Nav.Link disabled>Payment</Nav.Link>
+          <span className='text-secondary'>Payment</span>
         )}
       </Nav.Item>
 
       <Nav.Item>
         {step4 ? (
-          <Nav.Link as={Link} to='/placeorder'>
-            Place Order
-          </Nav.Link>
+          <Nav.Link as={Link} to='/placeorder' className='fw-bold text-primary'>Place Order</Nav.Link>
         ) : (
-          <Nav.Link disabled>Place Order</Nav.Link>
+          <span className='text-secondary'>Place Order</span>
         )}
       </Nav.Item>
     </Nav>

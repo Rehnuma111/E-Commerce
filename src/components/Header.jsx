@@ -32,17 +32,22 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg='primary' variant='dark' expand='lg' collapseOnSelect>
-        <Container>
-          <Navbar.Brand as={Link} to='/'>
-            <img src={logo} alt='ProShop' />
-            ProShop
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls='basic-navbar-nav' />
-          <Navbar.Collapse id='basic-navbar-nav'>
+      <nav
+        className='navbar navbar-expand-lg navbar-dark shadow-sm py-3'
+        style={{ background: 'linear-gradient(90deg, #00b894 0%, #00cec9 100%)' }}
+      >
+        <div className='container'>
+          <Link to='/' className='navbar-brand d-flex align-items-center gap-2'>
+            <img src={logo} alt='Logo' className='logo-img img-fluid' style={{height: '40px', width: 'auto'}} />
+            <span className='fw-bold fs-4'>E-Commerce</span>
+          </Link>
+          <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
+            <span className='navbar-toggler-icon'></span>
+          </button>
+          <div className='collapse navbar-collapse' id='navbarNav'>
             <Nav className='ms-auto'>
               <SearchBox />
-              <Nav.Link as={Link} to='/cart'>
+              <Nav.Link as={Link} to='/cart' className={`nav-link ${window.location.pathname === '/cart' ? 'active' : ''}`}>
                 <FaShoppingCart /> Cart
                 {cartItems.length > 0 && (
                   <Badge pill bg='success' style={{ marginLeft: '5px' }}>
@@ -52,7 +57,7 @@ const Header = () => {
               </Nav.Link>
               {userInfo ? (
                 <>
-                  <NavDropdown title={userInfo.name} id='username'>
+                  <NavDropdown title={userInfo.name} id='username' className={`nav-link ${window.location.pathname === '/profile' ? 'active' : ''}`}>
                     <NavDropdown.Item as={Link} to='/profile'>
                       Profile
                     </NavDropdown.Item>
@@ -62,14 +67,14 @@ const Header = () => {
                   </NavDropdown>
                 </>
               ) : (
-                <Nav.Link as={Link} to='/login'>
+                <Nav.Link as={Link} to='/login' className={`nav-link ${window.location.pathname === '/login' ? 'active' : ''}`}>
                   <FaUser /> Sign In
                 </Nav.Link>
               )}
 
               {/* Admin Links */}
               {userInfo && userInfo.isAdmin && (
-                <NavDropdown title='Admin' id='adminmenu'>
+                <NavDropdown title='Admin' id='adminmenu' className={`nav-link ${window.location.pathname.startsWith('/admin') ? 'active' : ''}`}>
                   <NavDropdown.Item as={Link} to='/admin/productlist'>
                     Products
                   </NavDropdown.Item>
@@ -82,9 +87,9 @@ const Header = () => {
                 </NavDropdown>
               )}
             </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+          </div>
+        </div>
+      </nav>
     </header>
   );
 };

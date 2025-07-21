@@ -2,16 +2,11 @@ import { Spinner } from 'react-bootstrap';
 
 const Loader = () => {
   return (
-    <Spinner
-      animation='border'
-      role='status'
-      style={{
-        width: '100px',
-        height: '100px',
-        margin: 'auto',
-        display: 'block',
-      }}
-    ></Spinner>
+    <div className='d-flex justify-content-center align-items-center py-5'>
+      <div className='spinner-border text-primary' role='status' style={{width: '3rem', height: '3rem'}}>
+        <span className='visually-hidden'>Loading...</span>
+      </div>
+    </div>
   );
 };
 

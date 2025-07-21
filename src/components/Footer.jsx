@@ -4,14 +4,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer>
-      <Container>
-        <Row>
-          <Col className='text-center py-3'>
-            <p>ProShop &copy; {currentYear}</p>
-          </Col>
-        </Row>
-      </Container>
+    <footer className='bg-primary text-white text-center py-4 mt-5 shadow-sm'>
+      <div className='container'>
+        <span className='fw-semibold'>&copy; {new Date().getFullYear()} E-Commerce. All rights reserved.</span>
+      </div>
     </footer>
   );
 };

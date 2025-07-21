@@ -51,3 +51,19 @@ table th {
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
 }
+
+.product-card-hover {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.product-card-hover:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(13, 202, 240, 0.15);
+}
+.logo-img {
+  max-height: 40px;
+  width: auto;
+  transition: filter 0.2s;
+}
+.logo-img:hover {
+  filter: brightness(1.1) drop-shadow(0 2px 8px #0dcaf0);
+}
